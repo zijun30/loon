@@ -1,32 +1,65 @@
-# #为注释符号，去掉此类符号，该行才会生效。
-# 图标库 → Qure：https://github.com/Koolson/Qure/tree/master/IconSet 或 OrzMini：https://github.com/Orz-3/mini
-# 引用部分神机规则分流，blackmatrix7整合的重写插件和去广告规则, Peng-YM的Sub-Store的资源解析器和插件库，chavyleung的BoxJS插件，Mazeorz整合的网易云音乐解锁。
-# "Yatta漫游小镇"博主自用规则模板, 随缘更新,欢迎访问本人的小破站： https://yattazen.com/
-# 更新时间2022-12-02
+# Loon 配置文件
+# 日期: 2025-09-21 21:00
+# 作者: sooyaaabo（恩秀）
+# 版本: 3.3.2(877)
+# 主页: https://github.com/sooyaaabo/Loon/blob/main/README.md
+# 插件: https://github.com/sooyaaabo/Loon/main/Plugin
+# 规则: https://github.com/sooyaaabo/Loon/main/Rule
+# App图标库: https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon.json
+# Flag图标库: https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon.json
+# Loon官方文档: https://nsloon.app/docs/intro
+# Loon官方教程: https://coffee-elderberry-22b.notion.site/Loon-71747252d5054551a8cd10924064899c
+# Loon第三方知识库：https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/b6047d8b-621c-44af-bfa6-a28d35bcf928
+# 参考链接: https://kelee.one/Tool/Loon/Lcf/zh-CN/Loon_Simple_Sample_Configuration_By_iKeLee.lcf
 
 [General]
-ipv6-vif = auto
-doh-server = https://dns.quad9.net/dns-query
+# IP查询模式
 ip-mode = dual
-disconnect-on-policy-change = true
-disable-stun = true
-skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
-bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+# TUN IPv6配置
+ipv6-vif = auto
+# DNS server
 dns-server = 9.9.9.9,149.112.112.112,1.1.1.1
-allow-udp-proxy = false
+# DoH server
+doh-server = https://dns.quad9.net/dns-query
+# Wi-Fi共享开启时http服务的端口
+wifi-access-http-port = 6154
+# Wi-Fi共享开启时socks5服务的端口
+wifi-access-socks5-port = 6153
+# 是否允许Wi-Fi下共享网络
 allow-wifi-access = false
+# 是否开启对局域网中其他设备的请求进行MITM
 mitm-on-wifi-access = false
-wifi-access-http-port = 7222
-wifi-access-socks5-port = 7221
-proxy-test-url = http://cp.cloudflare.com/generate_204
-internet-test-url = http://wifi.vivo.com.cn/generate_204
-test-timeout = 5
+# 节点测速时的超时秒数
+test-timeout = 3
+# 网络接口
 interface-mode = auto
+# 域名拦截行为
 domain-reject-mode = DNS
-sni-sniffing = true
-udp-fallback-mode = REJECT
+# DNS拦截方式
 dns-reject-mode = LoopbackIP
-resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+# SNI辅助规则匹配
+sni-sniffing = true
+# 直连时丢弃STUN
+disable-stun = true
+# UDP回落策略
+udp-fallback-mode = REJECT
+# 策略切换时关闭连接
+disconnect-on-policy-change = false
+# 直连测试URL
+internet-test-url = http://wifi.vivo.com.cn/generate_204
+# 节点测试URL
+proxy-test-url = http://cp.cloudflare.com/generate_204
+# proxy-test-url = http://www.apple.com/library/test/success.html
+# 资源解析器
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+# GeoIP数据库
+geoip-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/GeoData/Country-Masaiki.mmdb
+# ASN数据库
+ipasn-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/GeoData/GeoLite2-ASN-P3TERX.mmdb
+# 绕过代理
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+# 绕过路由
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 
 [Host]
 #可以使用以下四种模式：
@@ -36,120 +69,100 @@ resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/rele
 # 4 指定具体的SSID环境下使用特定的DNS服务器
 
 [Proxy]
-SG_Ipad = WireGuard,interface-ip=192.168.9.5,private-key="8HKzuU9wV74t1rNXDOcT0sIQu6HXjzl0kzUiQ6rvKWA=",mtu=1500,dns=192.168.9.1,keepalive=45,peers=[{public-key="K9M/k6N8T6kJ6RueO4KLGgcwYEoJ2fFySqVKZAFuCy0=",allowed-ips="0.0.0.0/0,::0/0",endpoint=vpn01.gemmaisle.com:61000,preshared-key="lNqNctLFm4fNCtoC02jDm12Bno5+u/8MeitpHGQ27Uc="}]
-SG_01 = Wireguard,interface-ip=192.168.9.4,private-key="KAbusDTbFCXTaKTVDSswvvew2Nw9c0LKNcl2HJ2Q70w=",mtu=1500,dns=9.9.9.9,keepalive=45,peers=[{public-key="K9M/k6N8T6kJ6RueO4KLGgcwYEoJ2fFySqVKZAFuCy0=",allowed-ips="0.0.0.0/0,::0/0",endpoint=vpn01.gemmaisle.com:61000,preshared-key="vEX0WlJXlzjLhJ0UuK6lDvV5HiXe06t/3d5/tvrj7xE="}]
-KR = VLESS,hh.gemmaisle.com,443,"45519423-6a10-59cc-bb3a-5ec72cf3e554",transport=tcp,over-tls=true,sni=hh.gemmaisle.com
 
 [Remote Proxy]
 # 远程节点订阅，默认开启解析器后，如出现无法导入情况请关闭解析器后再导入机场订阅
 # 机场名(可改为你喜欢的名字) = 订阅URL
 # 若加入3个以上的订阅，请在 [Remote Filter]下每个节点过滤分组加入新的机场组，[Proxy Group]下Proxy以及延迟最低策略组同理
 # > Sub-Store订阅，Sub-Store用户可自行替换自己的Sub-Store订阅链接，方便多机场用户
-MySub = https://sub.pmsub.me/base64,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
-MySub1 = https://raw.githubusercontent.com/chfchf0306/jeidian4.18/main/4.18,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
-MySub2 = https://example2/server-complete.txt,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
-NeteaseMusicUnlock = https://git.io/JfNq3,parser-enabled = true,udp=false,block-quic=true,fast-open=false,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
+
 
 [Remote Filter]
 # 筛选订阅节点，筛选后的结果可加入到策略组中，目前支持三种筛选方式
 # NodeSelect: 使用在UI上选择的节点。
 # NameKeyword: 根据提供的关键词对订阅中所有节点的名称进行筛选，使用筛选后的节点。
 # NameRegex: 根据提供的正则表达式对订阅中所有节点的名称进行筛选，使用筛选后的节点。
-NetEaseMusic = NameRegex,NeteaseMusicUnlock, FilterKey = "(?i)(music|𝐌𝐮𝐬𝐢𝐜|Unlock|网易云|云音乐|Music|Netease|🎶)"
-🇭🇰 = NameRegex, FilterKey = "(?i)(港|HK|Hong Kong|Hong)"
-🇨🇳 = NameRegex, FilterKey = "(?i)(台|新北|彰化|TW|Taiwan)"
-🇯🇵 = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
-🇰🇷 = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
-🇸🇬 = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
-🇺🇸 = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+Local-ALL = NameRegex,Local, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Sub-ALL = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Sub-HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong|Hong Kong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-MO = NameRegex, FilterKey = "^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Oman|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|🇨🇳|台湾|台北|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea|Seoul)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|新国|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States|America)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-UK = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|(\b(UK|GB|GBR|United Kingdom|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
+Sub-RA = NameRegex, FilterKey = "^(?=.*(.*))(?!.*((?i)🇭🇰|🇲🇴|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸|🇬🇧|香港|澳门|台湾|日本|川日|东京|大阪|泉日|埼玉|韩国|韓|首尔|新加坡|狮|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|英国|伦敦|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|回国|校园|游戏|🎮|(\b(HK|HKG|Hong|Hong Kong|MO|MAC|Oman|Macau|Macao|TW|TWN|Tai|Taiwan|JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|US|USA|United States|America|UK|GB|GBR|United Kingdom|Britain|USE|USED|TOTAL|EXPIRE|EMAIL|GAME|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
 # 策略组
-Proxy = select,MySub,MySub1,MySub2,延迟最低,SG_01,KR,SG_Ipad,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
-SSID = ssid,default=Proxy,cellular=Proxy,"zijun_wifi"=DIRECT,img-url = wifi
-NetEaseMusicUnlock = select,DIRECT,Proxy,NetEaseMusic,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
-漏网之鱼 = select,DIRECT,Proxy,延迟最低,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-大陆网站 = select,DIRECT,Proxy,延迟最低,SSID,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png
-境外网站 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-大陆流媒体 = select,DIRECT,Proxy,延迟最低,SSID,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/DomesticMedia.png
-国外流媒体 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
-数字货币 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency_3.png
-Instagram = select,延迟最低,Proxy,DIRECT,香港节点,台湾节点,日本节点,韩国节点,狮城节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram.png
-TikTok = select,DIRECT,SSID,🇨🇳,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
-YouTube = select,延迟最低,DIRECT,Proxy,香港节点,日本节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-Pornhub = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pornhub_1.png
-Spotify = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
-Netflix = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix_Letter.png
-Telegram = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-Google = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-Steam = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
-PayPal = select,DIRECT,Proxy,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
-广告拦截 = select,DIRECT,REJECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
-Apple Update = select,DIRECT,REJECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_Update.png
-Apple = select,DIRECT,Proxy,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-Microsoft = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
-Speedtest = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-延迟最低 = url-test,SG_01,KR,SG_Ipad,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
-香港节点 = url-test,🇭🇰,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-台湾节点 = url-test,🇨🇳,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
-日本节点 = url-test,🇯🇵,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-韩国节点 = url-test,🇰🇷,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-狮城节点 = url-test,🇸🇬,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-美国节点 = url-test,🇺🇸,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+手动选择 = select,DIRECT,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/Select.png
+时延优选 = url-test,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/UrlTest.png
+故障转移 = fallback,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/Fallback.png
+负载均衡 = load-balance,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/LoadBalance.png
+Local = url-test,Local-ALL,interval = 60,tolerance = 60,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/QuantumultX-03.png
+Global = select,Sub-ALL,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/WorldMap.png
+Hong Kong = url-test,Sub-HK,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/HongKong.png
+Macao = url-test,Sub-MO,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Macao.png
+Taiwan = url-test,Sub-TW,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Taiwan.png
+Japan = url-test,Sub-JP,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Japan.png
+South Korea = url-test,Sub-KR,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/SouthKorea.png
+Singapore = url-test,Sub-SG,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Singapore.png
+United States = url-test,Sub-US,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedStates.png
+United Kingdom = url-test,Sub-UK,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedKingdom.png
+Rare Areas = select,Sub-RA,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedNations.png
+AI = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/ChatGPT.png
+TikTok = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/TikTok-02.png
+GitHub = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/GitHub-02.png
+Microsoft = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Microsoft.png
+Google = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Google.png
+Instagram = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Instagram-02.png
+X = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Twitter-02.png
+Telegram = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Telegram-01.png
+YouTube = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/YouTube.png
+Netflix = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Netflix-02.png
+Streaming = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Conflux.png
 
 [Remote Rule]
 ## 远程分流规则订阅
 ## 将网络请求进行分流，网络请求的走向(是否能成功访问)由匹配到的策略组决定
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/NetEaseMusic/NetEaseMusic.list, policy=NetEaseMusicUnlock, tag=NetEaseMusicUnlock, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Apple/Apple.list, policy=Apple, tag=Apple, enabled=true
-https://raw.githubusercontent.com/yawenchim/Loon/master/rule/Cryptocurrency.list, policy=数字货币, tag=Cryptocurrency, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/NetEaseMusic/NetEaseMusic.list, policy=NetEaseMusicUnlock, tag=NetEaseMusicUnlock(解锁网易云灰色音乐), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list, policy=广告拦截, tag=AdBlock(广告拦截), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMedia/ChinaMedia.list, policy=大陆流媒体, tag=CNMedia(大陆流媒体), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Instagram/Instagram.list, policy=Instagram, tag=Instagram, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TikTok/TikTok.list, policy=TikTok, tag=TikTok（国际抖音）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list, policy=YouTube, tag=YouTube（油管）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy=Netflix, tag=Netflix（网飞）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Spotify/Spotify.list, policy=Spotify, tag=Spotify（声田音乐）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GlobalMedia/GlobalMedia.list, policy=GBMedia, tag=国外流媒体, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Steam/Steam.list, policy=Steam, tag=Steam, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/PayPal/PayPal.list, policy=PayPal, tag=PayPal（贝宝）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Microsoft/Microsoft.list, policy=Microsoft, tag=Microsoft（微软平台）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Speedtest/Speedtest.list, policy=Speedtest, tag=Speedtest（测速平台）, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=Google, tag=Google(谷歌全家桶), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Global/Global.list, policy=境外网站, tag=Outside(境外网站), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Global/Global_Domain.list, policy=境外网站, tag=Outside(境外域名), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China.list, policy=大陆网站, tag=Mainland(大陆网站), enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=大陆网站, tag=Mainland(大陆域名), enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/PCDN.lsr, policy=REJECT, tag=PCDN, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/MyBlockAds.lsr, policy=REJECT, tag=MyBlockAds, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AWAvenueAdsRule.lsr, policy=REJECT, tag=AWAvenueAdsRule, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/RejectAd.lsr, policy=REJECT, tag=RejectAd, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AdRules.lsr, policy=REJECT, tag=AdRules, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Direct.lsr, policy=DIRECT, tag=Media-Direct, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Apple.lsr, policy=DIRECT, tag=Apple, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Proxy.lsr, policy=Streaming, tag=Media-Proxy, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AI.lsr, policy=AI, tag=AI, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=true
+https://rule.kelee.one/Loon/GitHub.lsr, policy=GitHub, tag=GitHub, enabled=true
+https://rule.kelee.one/Loon/Microsoft.lsr, policy=Microsoft, tag=Microsoft, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=true
+https://rule.kelee.one/Loon/Instagram.lsr, policy=Instagram, tag=Instagram, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=true
+https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=true
+https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=true
+https://rule.kelee.one/Loon/Global.lsr, policy=United States, tag=Global, enabled=true
+https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=ChinaMax, enabled=true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
 [Rule]
-IP-CIDR,34.34.34.34/32,Proxy
-DOMAIN-SUFFIX,whatismyipaddress.com,Proxy
-# 本地分流规则:相同规则下本地规则优先生效
-# 绕过企业证书过期
-DOMAIN,ocsp.apple.com,REJECT
+FINAL,手动选择
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,Proxy,REJECT
+# Options:no-resolve(no-resolve(only for cidr))
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# IP-CIDR6, 2000::/3, DIRECT
+# 请勿在此添加GEOIP, cn, DIRECT
+# 请勿修改CN REGION规则的排序甚至删除
 
-# 屏蔽系统更新
-DOMAIN,ns.itunes.apple.com,Apple Update
-DOMAIN,appldnld.apple.com,Apple Update
-DOMAIN,mesu.apple.com,Apple Update
-DOMAIN,xp.apple.com,Apple Update
-DOMAIN,gdmf.apple.com,Apple Update
-
-# 抖音本地分流
-DOMAIN-SUFFIX,snssdk.com,DIRECT
-DOMAIN-SUFFIX,amemv.com,DIRECT
-
-# 其它
-DOMAIN-SUFFIX,local,DIRECT
-URL-REGEX,"(Subject|HELO|SMTP)",DIRECT
-DOMAIN-KEYWORD,announce,DIRECT
-DOMAIN-KEYWORD,torrent,DIRECT
-DOMAIN-KEYWORD,tracker,DIRECT
-DOMAIN-KEYWORD,yattazen,Proxy
-DOMAIN-SUFFIX,smtp,DIRECT
-GEOIP,CN,大陆网站
-FINAL,漏网之鱼
 
 [Remote Rewrite]
 # 远程重写
@@ -176,16 +189,84 @@ https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Loon.plugin, p
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Netisp-x.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NodeTools.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/StreamingMedia.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Redirect.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/WebPage.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NodeSeek.lpx, policy=Hong Kong, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CookieTask.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/SkipProxy.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/iRingo_WeatherKit.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/AppRaven.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RevenueCat.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/iTunes.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Bank.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ChinaMobile.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ChinaUnicom.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ColorfulCloudsWeatherPro.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/QQ.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/WeChat.lpx, policy=DIRECT, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RedNote.lpx, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Telegram.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/VVebo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Weibo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Weibo_intl.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Soul.lpx, policy=DIRECT, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Telegram.lpx, policy=Singapore, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Google.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Quark.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Alipan.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BaiduNetDisk.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ThunderCloudDisk.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/123Pan.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Douyin_HK.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Kwai.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Amap.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/DiDi.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Railway12306.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Taobao.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Goofish.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Jingdong.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Pinduoduo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/smzdm.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Cainiao.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/DingdongMaicai.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Fenbi.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/KDocs.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/TencentDocs.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Fanshu.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Zhihu.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CoolApk.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IThome.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Keep.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/LuckinCoffee.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Ezviz.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/QQMusic.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NeteaseMusic.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/SodaMusic.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BodianMusic.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/KuwoMusic.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Spotify.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Ximalaya.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CosmosFM.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Listenify.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/TencentVideo.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IQIYI.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YoukuVideo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/MangoTV.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Bilibili.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IQIYI_Ssports.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YouTube.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CMS_Adblock.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/XPTV.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/MyBlockAds.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/StartUpAds.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BlockAds.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/LoonGallery.lpx, policy=Hong Kong, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Sub-Store.lpx, policy=Hong Kong, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Script-Hub.lpx, policy=Hong Kong, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BoxJs.lpx, policy=Hong Kong, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/1.1.1.1.lpx, enabled=true
 
 
 [Mitm]
