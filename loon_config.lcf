@@ -181,18 +181,18 @@ https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plu
 # 远程(重写)插件
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, tag=BoxJs, enabled=false
 https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Loon.plugin, policy=Others, tag=Sub-Store, enabled=false
-https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=false
-https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=false
-https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Netisp-x.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NodeTools.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/StreamingMedia.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Redirect.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/WebPage.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NodeSeek.lpx, policy=Hong Kong, enabled=ffalse
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Redirect.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/WebPage.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NodeSeek.lpx, policy=Hong Kong, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CookieTask.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/SkipProxy.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/iRingo_WeatherKit.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/iRingo_WeatherKit.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/AppRaven.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RevenueCat.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/iTunes.lpx, enabled=false
@@ -202,12 +202,12 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ChinaUnicom.lpx, en
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/ColorfulCloudsWeatherPro.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/QQ.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/WeChat.lpx, policy=DIRECT, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RedNote.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RedNote.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/VVebo.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Weibo.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Weibo_intl.lpx, enabled=ffalse
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Soul.lpx, policy=DIRECT, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Telegram.lpx, policy=Singapore, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Telegram.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Google.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Quark.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Alipan.lpx, enabled=false
@@ -219,10 +219,10 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Kwai.lpx, enabled=f
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Amap.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/DiDi.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Railway12306.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Taobao.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Taobao.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Goofish.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Jingdong.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Pinduoduo.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Pinduoduo.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/smzdm.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Cainiao.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/DingdongMaicai.lpx, enabled=false
@@ -241,7 +241,7 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/NeteaseMusic.lpx, e
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/SodaMusic.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BodianMusic.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/KuwoMusic.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Spotify.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Spotify.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Ximalaya.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CosmosFM.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Listenify.lpx, enabled=false
@@ -249,9 +249,9 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/TencentVideo.lpx, e
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IQIYI.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YoukuVideo.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/MangoTV.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Bilibili.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Bilibili.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IQIYI_Ssports.lpx, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YouTube.lpx, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YouTube.lpx, enabled=true
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/CMS_Adblock.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/XPTV.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/MyBlockAds.lpx, enabled=false
