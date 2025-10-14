@@ -10,17 +10,22 @@ doh-server = https://dns.quad9.net/dns-query
 ip-mode = dual
 disconnect-on-policy-change = true
 disable-stun = true
-skip-proxy = 127.0.0.1
-bypass-tun = 10.0.0.0/8,127.0.0.0/8
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 dns-server = 9.9.9.9,149.112.112.112,1.1.1.1
 allow-udp-proxy = false
 allow-wifi-access = false
+mitm-on-wifi-access = false
 wifi-access-http-port = 7222
 wifi-access-socks5-port = 7221
 proxy-test-url = http://cp.cloudflare.com/generate_204
 internet-test-url = http://wifi.vivo.com.cn/generate_204
 test-timeout = 5
 interface-mode = auto
+domain-reject-mode = DNS
+sni-sniffing = true
+udp-fallback-mode = REJECT
+dns-reject-mode = LoopbackIP
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
 
 [Host]
@@ -163,11 +168,24 @@ enable = true
 
 
 [Plugin]
-https://raw.githubusercontent.com/app2smile/rules/master/plugin/spotify.plugin, enabled=true
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/spotify.plugin, enabled=false
 https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/FKTG.lpx, enabled=true
 # 远程(重写)插件
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, tag=BoxJs, enabled=true
 https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Loon.plugin, policy=Others, tag=Sub-Store, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/RedNote.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Telegram.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Taobao.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Jingdong.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Pinduoduo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Spotify.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/TencentVideo.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/IQIYI.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Bilibili.lpx, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/YouTube.lpx, enabled=true
 
 
 [Mitm]
