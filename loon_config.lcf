@@ -258,14 +258,12 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/MyBlockAds.lpx, ena
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/StartUpAds.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BlockAds.lpx, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/LoonGallery.lpx, policy=Hong Kong, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Sub-Store.lpx, policy=Hong Kong, enabled=false
+# https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Sub-Store.lpx, policy=Hong Kong, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/Script-Hub.lpx, policy=Hong Kong, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BoxJs.lpx, policy=Hong Kong, enabled=false
+# https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/BoxJs.lpx, policy=Hong Kong, enabled=false
 https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/1.1.1.1.lpx, enabled=false
 
 
 [Mitm]
 skip-server-cert-verify = true
-ca-p12 =
-ca-passphrase =
 hostname =
