@@ -1,0 +1,177 @@
+# #为注释符号，去掉此类符号，该行才会生效。
+# 图标库 → Qure：https://github.com/Koolson/Qure/tree/master/IconSet 或 OrzMini：https://github.com/Orz-3/mini
+# 引用部分神机规则分流，blackmatrix7整合的重写插件和去广告规则, Peng-YM的Sub-Store的资源解析器和插件库，chavyleung的BoxJS插件，Mazeorz整合的网易云音乐解锁。
+# "Yatta漫游小镇"博主自用规则模板, 随缘更新,欢迎访问本人的小破站： https://yattazen.com/
+# 更新时间2022-12-02
+
+[General]
+ipv6-vif = auto
+doh-server = https://dns.quad9.net/dns-query
+ip-mode = dual
+disconnect-on-policy-change = true
+disable-stun = true
+skip-proxy = 127.0.0.1
+bypass-tun = 10.0.0.0/8,127.0.0.0/8
+dns-server = 9.9.9.9,149.112.112.112,1.1.1.1
+allow-udp-proxy = false
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+proxy-test-url = http://cp.cloudflare.com/generate_204
+internet-test-url = http://wifi.vivo.com.cn/generate_204
+test-timeout = 5
+interface-mode = auto
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+
+[Host]
+#可以使用以下四种模式：
+# 1 指定域名使用对应的IP地址
+# 2 将域名指向另一个域名
+# 3 指定域名请求DNS时使用特定的DNS服务器，格式为：google.com = server:8.8.8.8 或者 *.baidu.com = server:https://example.com/dns-query
+# 4 指定具体的SSID环境下使用特定的DNS服务器
+
+[Proxy]
+SG_Ipad = WireGuard,interface-ip=192.168.9.5,private-key="8HKzuU9wV74t1rNXDOcT0sIQu6HXjzl0kzUiQ6rvKWA=",mtu=1500,dns=192.168.9.1,keepalive=45,peers=[{public-key="K9M/k6N8T6kJ6RueO4KLGgcwYEoJ2fFySqVKZAFuCy0=",allowed-ips="0.0.0.0/0,::0/0",endpoint=vpn01.gemmaisle.com:61000,preshared-key="lNqNctLFm4fNCtoC02jDm12Bno5+u/8MeitpHGQ27Uc="}]
+SG_01 = Wireguard,interface-ip=192.168.9.4,private-key="KAbusDTbFCXTaKTVDSswvvew2Nw9c0LKNcl2HJ2Q70w=",mtu=1500,dns=9.9.9.9,keepalive=45,peers=[{public-key="K9M/k6N8T6kJ6RueO4KLGgcwYEoJ2fFySqVKZAFuCy0=",allowed-ips="0.0.0.0/0,::0/0",endpoint=vpn01.gemmaisle.com:61000,preshared-key="vEX0WlJXlzjLhJ0UuK6lDvV5HiXe06t/3d5/tvrj7xE="}]
+KR = VLESS,hh.gemmaisle.com,443,"45519423-6a10-59cc-bb3a-5ec72cf3e554",transport=tcp,over-tls=true,sni=hh.gemmaisle.com
+
+[Remote Proxy]
+# 远程节点订阅，默认开启解析器后，如出现无法导入情况请关闭解析器后再导入机场订阅
+# 机场名(可改为你喜欢的名字) = 订阅URL
+# 若加入3个以上的订阅，请在 [Remote Filter]下每个节点过滤分组加入新的机场组，[Proxy Group]下Proxy以及延迟最低策略组同理
+# > Sub-Store订阅，Sub-Store用户可自行替换自己的Sub-Store订阅链接，方便多机场用户
+MySub = https://sub.pmsub.me/base64,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
+MySub1 = https://raw.githubusercontent.com/chfchf0306/jeidian4.18/main/4.18,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
+MySub2 = https://example2/server-complete.txt,parser-enabled = true,udp=true,block-quic=true,fast-open=true,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
+NeteaseMusicUnlock = https://git.io/JfNq3,parser-enabled = true,udp=false,block-quic=true,fast-open=false,vmess-aead=true,skip-cert-verify=default,enabled=false,flexible-sni=false
+
+[Remote Filter]
+# 筛选订阅节点，筛选后的结果可加入到策略组中，目前支持三种筛选方式
+# NodeSelect: 使用在UI上选择的节点。
+# NameKeyword: 根据提供的关键词对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+# NameRegex: 根据提供的正则表达式对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+NetEaseMusic = NameRegex,NeteaseMusicUnlock, FilterKey = "(?i)(music|𝐌𝐮𝐬𝐢𝐜|Unlock|网易云|云音乐|Music|Netease|🎶)"
+🇭🇰 = NameRegex, FilterKey = "(?i)(港|HK|Hong Kong|Hong)"
+🇨🇳 = NameRegex, FilterKey = "(?i)(台|新北|彰化|TW|Taiwan)"
+🇯🇵 = NameRegex, FilterKey = "(?i)(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
+🇰🇷 = NameRegex, FilterKey = "(?i)(KR|Korea|KOR|首尔|韩|韓)"
+🇸🇬 = NameRegex, FilterKey = "(?i)(新加坡|坡|狮城|SG|Singapore)"
+🇺🇸 = NameRegex, FilterKey = "(?i)(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
+
+[Proxy Group]
+# 策略组
+Proxy = select,MySub,MySub1,MySub2,延迟最低,SG_01,KR,SG_Ipad,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
+SSID = ssid,default=Proxy,cellular=Proxy,"zijun_wifi"=DIRECT,img-url = wifi
+NetEaseMusicUnlock = select,DIRECT,Proxy,NetEaseMusic,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
+漏网之鱼 = select,DIRECT,Proxy,延迟最低,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+大陆网站 = select,DIRECT,Proxy,延迟最低,SSID,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png
+境外网站 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+大陆流媒体 = select,DIRECT,Proxy,延迟最低,SSID,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/DomesticMedia.png
+国外流媒体 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
+数字货币 = select,延迟最低,Proxy,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency_3.png
+Instagram = select,延迟最低,Proxy,DIRECT,香港节点,台湾节点,日本节点,韩国节点,狮城节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram.png
+TikTok = select,DIRECT,SSID,🇨🇳,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
+YouTube = select,延迟最低,DIRECT,Proxy,香港节点,日本节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+Pornhub = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Pornhub_1.png
+Spotify = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+Netflix = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix_Letter.png
+Telegram = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+Google = select,延迟最低,DIRECT,Proxy,香港节点,台湾节点,日本节点,韩国节点,狮城节点,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+Steam = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png
+PayPal = select,DIRECT,Proxy,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
+广告拦截 = select,DIRECT,REJECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+Apple Update = select,DIRECT,REJECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_Update.png
+Apple = select,DIRECT,Proxy,美国节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+Microsoft = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+Speedtest = select,DIRECT,Proxy,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+延迟最低 = url-test,SG_01,KR,SG_Ipad,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
+香港节点 = url-test,🇭🇰,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+台湾节点 = url-test,🇨🇳,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+日本节点 = url-test,🇯🇵,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+韩国节点 = url-test,🇰🇷,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+狮城节点 = url-test,🇸🇬,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+美国节点 = url-test,🇺🇸,url = http://cp.cloudflare.com/generate_204,interval = 1800,tolerance = 10,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+
+[Remote Rule]
+## 远程分流规则订阅
+## 将网络请求进行分流，网络请求的走向(是否能成功访问)由匹配到的策略组决定
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/NetEaseMusic/NetEaseMusic.list, policy=NetEaseMusicUnlock, tag=NetEaseMusicUnlock, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Apple/Apple.list, policy=Apple, tag=Apple, enabled=true
+https://raw.githubusercontent.com/yawenchim/Loon/master/rule/Cryptocurrency.list, policy=数字货币, tag=Cryptocurrency, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/NetEaseMusic/NetEaseMusic.list, policy=NetEaseMusicUnlock, tag=NetEaseMusicUnlock(解锁网易云灰色音乐), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list, policy=广告拦截, tag=AdBlock(广告拦截), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMedia/ChinaMedia.list, policy=大陆流媒体, tag=CNMedia(大陆流媒体), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Instagram/Instagram.list, policy=Instagram, tag=Instagram, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TikTok/TikTok.list, policy=TikTok, tag=TikTok（国际抖音）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list, policy=YouTube, tag=YouTube（油管）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy=Netflix, tag=Netflix（网飞）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Spotify/Spotify.list, policy=Spotify, tag=Spotify（声田音乐）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GlobalMedia/GlobalMedia.list, policy=GBMedia, tag=国外流媒体, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Steam/Steam.list, policy=Steam, tag=Steam, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/PayPal/PayPal.list, policy=PayPal, tag=PayPal（贝宝）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Microsoft/Microsoft.list, policy=Microsoft, tag=Microsoft（微软平台）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Speedtest/Speedtest.list, policy=Speedtest, tag=Speedtest（测速平台）, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=Google, tag=Google(谷歌全家桶), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Global/Global.list, policy=境外网站, tag=Outside(境外网站), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Global/Global_Domain.list, policy=境外网站, tag=Outside(境外域名), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China.list, policy=大陆网站, tag=Mainland(大陆网站), enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=大陆网站, tag=Mainland(大陆域名), enabled=true
+
+[Rule]
+IP-CIDR,34.34.34.34/32,Proxy
+DOMAIN-SUFFIX,whatismyipaddress.com,Proxy
+# 本地分流规则:相同规则下本地规则优先生效
+# 绕过企业证书过期
+DOMAIN,ocsp.apple.com,REJECT
+
+# 屏蔽系统更新
+DOMAIN,ns.itunes.apple.com,Apple Update
+DOMAIN,appldnld.apple.com,Apple Update
+DOMAIN,mesu.apple.com,Apple Update
+DOMAIN,xp.apple.com,Apple Update
+DOMAIN,gdmf.apple.com,Apple Update
+
+# 抖音本地分流
+DOMAIN-SUFFIX,snssdk.com,DIRECT
+DOMAIN-SUFFIX,amemv.com,DIRECT
+
+# 其它
+DOMAIN-SUFFIX,local,DIRECT
+URL-REGEX,"(Subject|HELO|SMTP)",DIRECT
+DOMAIN-KEYWORD,announce,DIRECT
+DOMAIN-KEYWORD,torrent,DIRECT
+DOMAIN-KEYWORD,tracker,DIRECT
+DOMAIN-KEYWORD,yattazen,Proxy
+DOMAIN-SUFFIX,smtp,DIRECT
+GEOIP,CN,大陆网站
+FINAL,漏网之鱼
+
+[Remote Rewrite]
+# 远程重写
+
+[URL Rewrite]
+# 京东比价Fix
+enable = false
+^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start reject-200
+
+[Remote Script]
+
+[Script]
+# 任务脚本
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/check.js, timeout=300, tag=流媒体-解锁查询, img-url=https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Filter/GMedia.png
+enable = true
+
+
+[Plugin]
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/spotify.plugin, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/FKTG.lpx, enabled=true
+# 远程(重写)插件
+https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, tag=BoxJs, enabled=true
+https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Loon.plugin, policy=Others, tag=Sub-Store, enabled=true
+
+
+[Mitm]
+skip-server-cert-verify = true
+ca-p12 = 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
+ca-passphrase = 8FADD69G
+hostname =
