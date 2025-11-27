@@ -126,28 +126,28 @@ Streaming = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United Sta
 [Remote Rule]
 ## 远程分流规则订阅
 ## 将网络请求进行分流，网络请求的走向(是否能成功访问)由匹配到的策略组决定
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/PCDN.lsr, policy=REJECT, tag=PCDN, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/MyBlockAds.lsr, policy=REJECT, tag=MyBlockAds, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AWAvenueAdsRule.lsr, policy=REJECT, tag=AWAvenueAdsRule, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/RejectAd.lsr, policy=REJECT, tag=RejectAd, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AdRules.lsr, policy=REJECT, tag=AdRules, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Direct.lsr, policy=DIRECT, tag=Media-Direct, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Apple.lsr, policy=DIRECT, tag=Apple, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Proxy.lsr, policy=Streaming, tag=Media-Proxy, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AI.lsr, policy=AI, tag=AI, enabled=true
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=true
-https://rule.kelee.one/Loon/GitHub.lsr, policy=GitHub, tag=GitHub, enabled=true
-https://rule.kelee.one/Loon/Microsoft.lsr, policy=Microsoft, tag=Microsoft, enabled=true
-https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=true
-https://rule.kelee.one/Loon/Instagram.lsr, policy=Instagram, tag=Instagram, enabled=true
-https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=true
-https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=true
-https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=true
-https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=true
-https://rule.kelee.one/Loon/Global.lsr, policy=United States, tag=Global, enabled=true
-https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=ChinaMax, enabled=true
-https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
-https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/PCDN.lsr, policy=REJECT, tag=PCDN, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/MyBlockAds.lsr, policy=REJECT, tag=MyBlockAds, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AWAvenueAdsRule.lsr, policy=REJECT, tag=AWAvenueAdsRule, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/RejectAd.lsr, policy=REJECT, tag=RejectAd, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AdRules.lsr, policy=REJECT, tag=AdRules, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Direct.lsr, policy=DIRECT, tag=Media-Direct, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Apple.lsr, policy=DIRECT, tag=Apple, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Proxy.lsr, policy=Streaming, tag=Media-Proxy, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AI.lsr, policy=AI, tag=AI, enabled=false
+https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=false
+https://rule.kelee.one/Loon/GitHub.lsr, policy=GitHub, tag=GitHub, enabled=false
+https://rule.kelee.one/Loon/Microsoft.lsr, policy=Microsoft, tag=Microsoft, enabled=false
+https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=false
+https://rule.kelee.one/Loon/Instagram.lsr, policy=Instagram, tag=Instagram, enabled=false
+https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=false
+https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=false
+https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=false
+https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=false
+https://rule.kelee.one/Loon/Global.lsr, policy=United States, tag=Global, enabled=false
+https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=ChinaMax, enabled=false
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=false
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=false
 
 [Rule]
 FINAL,手动选择
