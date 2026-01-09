@@ -53,9 +53,9 @@ proxy-test-url = http://cp.cloudflare.com/generate_204
 # 资源解析器
 resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
 # GeoIP数据库
-geoip-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/GeoData/Country-Masaiki.mmdb
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
 # ASN数据库
-ipasn-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/GeoData/GeoLite2-ASN-P3TERX.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
 # 绕过代理
 skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
 # 绕过路由
@@ -82,75 +82,29 @@ bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,1
 # NodeSelect: 使用在UI上选择的节点。
 # NameKeyword: 根据提供的关键词对订阅中所有节点的名称进行筛选，使用筛选后的节点。
 # NameRegex: 根据提供的正则表达式对订阅中所有节点的名称进行筛选，使用筛选后的节点。
-Local-ALL = NameRegex,Local, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-Sub-ALL = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-Sub-HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong|Hong Kong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-MO = NameRegex, FilterKey = "^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Oman|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|🇨🇳|台湾|台北|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea|Seoul)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|新国|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States|America)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-UK = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|(\b(UK|GB|GBR|United Kingdom|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)(\d+)?\b))).*$"
-Sub-RA = NameRegex, FilterKey = "^(?=.*(.*))(?!.*((?i)🇭🇰|🇲🇴|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸|🇬🇧|香港|澳门|台湾|日本|川日|东京|大阪|泉日|埼玉|韩国|韓|首尔|新加坡|狮|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|英国|伦敦|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|总计|到期|机场|下次|重置|重新|设置|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|回国|校园|游戏|🎮|(\b(HK|HKG|Hong|Hong Kong|MO|MAC|Oman|Macau|Macao|TW|TWN|Tai|Taiwan|JP|JPN|Japan|KR|KOR|Korea|SG|SGP|Singapore|US|USA|United States|America|UK|GB|GBR|United Kingdom|Britain|USE|USED|TOTAL|EXPIRE|EMAIL|GAME|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+回国节点=NameRegex, FilterKey="^(?=.*((?i)🇨🇳|回国|中国|上海|广州|北京(\b(CN|China)(\d+)?\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(CN|China|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+其他节点=NameRegex, FilterKey="^(?=.*(.*))(?!.*((?i)🇨🇳|回国|中国|上海|广州|北京(\b(CN|China)(\d+)?\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(CN|China|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+
 
 [Proxy Group]
-# 策略组
-手动选择 = select,DIRECT,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,Rare Areas,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/Select.png
-时延优选 = url-test,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/UrlTest.png
-故障转移 = fallback,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/Fallback.png
-负载均衡 = load-balance,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Other-Icon/LoadBalance.png
-Local = url-test,Local-ALL,interval = 60,tolerance = 60,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/QuantumultX-03.png
-Global = select,Sub-ALL,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/WorldMap.png
-Hong Kong = url-test,Sub-HK,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/HongKong.png
-Macao = url-test,Sub-MO,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Macao.png
-Taiwan = url-test,Sub-TW,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Taiwan.png
-Japan = url-test,Sub-JP,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Japan.png
-South Korea = url-test,Sub-KR,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/SouthKorea.png
-Singapore = url-test,Sub-SG,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/Singapore.png
-United States = url-test,Sub-US,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedStates.png
-United Kingdom = url-test,Sub-UK,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedKingdom.png
-Rare Areas = select,Sub-RA,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/Flag-Icon/UnitedNations.png
-AI = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/ChatGPT.png
-TikTok = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/TikTok-02.png
-GitHub = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/GitHub-02.png
-Microsoft = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Microsoft.png
-Google = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Google.png
-Instagram = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Instagram-02.png
-X = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Twitter-02.png
-Telegram = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Telegram-01.png
-YouTube = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/YouTube.png
-Netflix = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Netflix-02.png
-Streaming = select,Hong Kong,Macao,Taiwan,Japan,South Korea,Singapore,United States,United Kingdom,img-url = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Conflux.png
+回国手动策略=select, 回国节点, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+其他手动策略=select, 其他节点, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
 
 [Remote Rule]
 ## 远程分流规则订阅
 ## 将网络请求进行分流，网络请求的走向(是否能成功访问)由匹配到的策略组决定
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/PCDN.lsr, policy=REJECT, tag=PCDN, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/MyBlockAds.lsr, policy=REJECT, tag=MyBlockAds, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AWAvenueAdsRule.lsr, policy=REJECT, tag=AWAvenueAdsRule, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/RejectAd.lsr, policy=REJECT, tag=RejectAd, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AdRules.lsr, policy=REJECT, tag=AdRules, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Direct.lsr, policy=DIRECT, tag=Media-Direct, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Apple.lsr, policy=DIRECT, tag=Apple, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/Media-Proxy.lsr, policy=Streaming, tag=Media-Proxy, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/AI.lsr, policy=AI, tag=AI, enabled=false
-https://raw.githubusercontent.com/sooyaaabo/Loon/main/Rule/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=false
-https://rule.kelee.one/Loon/GitHub.lsr, policy=GitHub, tag=GitHub, enabled=false
-https://rule.kelee.one/Loon/Microsoft.lsr, policy=Microsoft, tag=Microsoft, enabled=false
-https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=false
-https://rule.kelee.one/Loon/Instagram.lsr, policy=Instagram, tag=Instagram, enabled=false
-https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=false
-https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=false
-https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=false
-https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=false
-https://rule.kelee.one/Loon/Global.lsr, policy=United States, tag=Global, enabled=false
-https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=ChinaMax, enabled=false
-https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=false
-https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=false
+https://rule.kelee.one/Loon/iQIYI.lsr, policy=回国手动策略, tag=爱奇艺视频, enabled=true
+https://rule.kelee.one/Loon/Youku.lsr, policy=回国手动策略, tag=优酷视频, enabled=true
+https://rule.kelee.one/Loon/TencentVideo.lsr, policy=回国手动策略, tag=腾讯视频, enabled=true
+https://rule.kelee.one/Loon/BiliBili.lsr, policy=回国手动策略, tag=哔哩哔哩, enabled=true
+https://rule.kelee.one/Loon/NetEaseMusic.lsr, policy=回国手动策略, tag=网易云音乐, enabled=true
+https://rule.kelee.one/Loon/Himalaya.lsr, policy=回国手动策略, tag=喜马拉雅, enabled=true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=回国手动策略, tag=CN REGION, enabled=true
+
 
 [Rule]
-FINAL,手动选择
 # Local Rule
 # Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
 # Strategy:DIRECT,Proxy,REJECT
@@ -162,6 +116,7 @@ FINAL,手动选择
 # IP-CIDR6, 2000::/3, DIRECT
 # 请勿在此添加GEOIP, cn, DIRECT
 # 请勿修改CN REGION规则的排序甚至删除
+FINAL, DIRECT
 
 
 [Remote Rewrite]
@@ -266,4 +221,3 @@ https://raw.githubusercontent.com/sooyaaabo/Loon/main/Plugin/1.1.1.1.lpx, enable
 
 [Mitm]
 skip-server-cert-verify = true
-hostname =
