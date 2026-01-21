@@ -140,6 +140,7 @@ https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, policy=DIRECT, enabl
 https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=DIRECT, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=DIRECT, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, policy=DIRECT, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/FKTG.lpx, enabled=true
 
 
 [Mitm]
